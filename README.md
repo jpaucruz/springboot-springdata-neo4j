@@ -108,7 +108,28 @@ spring.data.neo4j.password=test
 
 ##### Spring Data with Neo4J use
 
-You just have to create the repository with the operations that are needed (remember that CrudRepository already offers a series of default operations)
+Mark your database entities like @NodeEntity and @RelationshipEntity to integrate with Neo4J using Spring Data
+
+```java
+@RelationshipEntity(type = "ACTED_IN")
+public class Role {
+
+  @Id
+  @GeneratedValue
+  private Long id;
+  
+  private List<String> roles = new ArrayList<>();
+
+  @StartNode
+  private Artist actor;
+
+  @EndNode
+  private Movie movie;
+
+}
+```
+
+Additionally, you just have to create the repository with the operations that are needed (remember that CrudRepository already offers a series of default operations)
 
 ```java
 @Repository
