@@ -1,4 +1,4 @@
-package com.jpaucruz.github.model;
+package com.jpaucruz.github.model.repository;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

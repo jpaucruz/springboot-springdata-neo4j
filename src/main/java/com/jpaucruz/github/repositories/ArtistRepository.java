@@ -1,6 +1,6 @@
 package com.jpaucruz.github.repositories;
 
-import com.jpaucruz.github.model.Artist;
+import com.jpaucruz.github.model.repository.Artist;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

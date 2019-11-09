@@ -1,4 +1,4 @@
-package com.jpaucruz.github.model;
+package com.jpaucruz.github.model.repository;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -31,6 +31,6 @@ public class Movie {
   
   @JsonIgnoreProperties("movie")
   @Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
-  private List<Role> roles;
+  private List<Role> cast;
   
 }

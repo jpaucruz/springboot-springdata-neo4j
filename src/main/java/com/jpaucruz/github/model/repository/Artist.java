@@ -1,13 +1,12 @@
-package com.jpaucruz.github.model;
+package com.jpaucruz.github.model.repository;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.neo4j.ogm.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -15,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NodeEntity("Person")
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonIgnoreProperties("artist")
 public class Artist {
   
   @Id
@@ -29,6 +28,12 @@ public class Artist {
   private int born;
   
   @Relationship(type = "ACTED_IN")
-  private List<Movie> movies = new ArrayList<>();
+  private List<Role> performances;
+  
+  @Relationship(type = "PRODUCED")
+  private List<Movie> productions;
+  
+  @Relationship(type = "DIRECTED")
+  private List<Movie> directions;
   
 }

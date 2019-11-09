@@ -122,19 +122,26 @@ For use this repository, you simply have to inject it into where you want to use
 ```java
 @Service
 public class MovieServiceDefault implements MovieService {
-
+  
   private MovieRepository movieRepository;
-
+  private MovieComponent movieComponent;
+  
   @Autowired
-  public MovieServiceDefault(MovieRepository movieRepository) {
+  public MovieServiceDefault(MovieRepository movieRepository, MovieComponent movieComponent) {
     this.movieRepository = movieRepository;
+    this.movieComponent = movieComponent;
   }
-
+  
   @Override
-  public List<Movie> searchMovies() {
-    return StreamSupport.stream(movieRepository.findAll().spliterator(), false).collect(Collectors.toList());
+  public List<MovieResponse> searchMovies() {
+    
+    return StreamSupport
+      .stream(movieRepository.findAll().spliterator(), false)
+      .map(movie -> movieComponent.map(movie))
+      .collect(Collectors.toList());
+    
   }
-
+  
 }
 ```
 

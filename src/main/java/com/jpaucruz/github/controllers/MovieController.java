@@ -1,6 +1,6 @@
 package com.jpaucruz.github.controllers;
 
-import com.jpaucruz.github.model.Movie;
+import com.jpaucruz.github.model.api.MovieResponse;
 import com.jpaucruz.github.services.MovieService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -28,7 +27,7 @@ public class MovieController {
   @GetMapping(
     produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public List<Movie> searchMovies() {
+  public List<MovieResponse> searchMovies() {
     return movieService.searchMovies();
   }
 

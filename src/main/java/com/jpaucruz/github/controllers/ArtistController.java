@@ -1,6 +1,6 @@
 package com.jpaucruz.github.controllers;
 
-import com.jpaucruz.github.model.Artist;
+import com.jpaucruz.github.model.api.ArtistResponse;
 import com.jpaucruz.github.services.ArtistService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ArtistController {
   @GetMapping(
     produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public List<Artist> searchArtists() {
+  public List<ArtistResponse> searchArtists() {
     return artistService.searchArtists();
   }
 

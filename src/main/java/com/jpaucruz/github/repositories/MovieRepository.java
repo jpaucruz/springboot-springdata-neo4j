@@ -1,6 +1,6 @@
 package com.jpaucruz.github.repositories;
 
-import com.jpaucruz.github.model.Movie;
+import com.jpaucruz.github.model.repository.Movie;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
